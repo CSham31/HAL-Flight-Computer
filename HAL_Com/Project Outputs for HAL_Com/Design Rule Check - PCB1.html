@@ -1,0 +1,794 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD20\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">31-Dec-20</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">2:54:36 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:02</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc" class="file"><acronym title="F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc">F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">150</td></tr>
+</table>
+</td>
+</table><a name="ID31YJS4USTUYHBK5X5CBQ5YGQAHQCTG3JX4WJO3J5TV4LXLJM1E1M"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDWSR4BZQE3WINKERSJH5PIKUNYHQAL00FUZEOLUG4BKX2EDYZDVOB">Clearance Constraint (Gap=10mil) (All),(All)</a></td>
+<td class="column2">42</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDRCQ4NG555LMVMZVYKMZOQJFYIDNYKSH1SR24MFDSR2UYTSREOBQM">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID2033MLDBP1KXKASR2R2DVLVWBIMVTWKEVOOECVNQVK0V4JEBI5JG">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">87</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDMIVLAJ1TQAAWC3JOXOB1IIMT1KD225PNWMSSVLOCEIOSYPCVTNJM">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID2MUMRBOQHIHVFBIRGDTTXVGZGCAK4FDXP13Y2ZDDVSKFYUQE3YCL">Width Constraint (Min=10mil) (Max=10mil) (Preferred=10mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDOAXM0LAIQJCLKMQUAQYBJSOJGI01WVKCK2RFYNISTZPQROYWHHYG">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID5X10EHJWGEWWEPNZUVZF1GYNCLZGWLESKJYNCUDVCCVBHEEJTULD">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID4HAEDYHFP4KIN4GA1LU3OM5I2GR0CKKOLWRFE0GDQML1WFT1KJN">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID5U5OBAQXIGTFJDU2B0PLFMAEGDR4IIYTU0VBTL0H3STZ34SVCXM">Minimum Solder Mask Sliver (Gap=10mil) (All),(All)</a></td>
+<td class="column2">6</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDKVA1MZY2RL54DSAEO3TGVVJYBJNILM4C1WEBDVCG1FNDG1USKMCC">Silk To Solder Mask (Clearance=5mil) (IsPad),(All)</a></td>
+<td class="column2">11</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDDSCOQXD2JQAND1QXLZX43GPXI1SVQTAJAOFHWDJKYMJLX2QJA0I">Silk to Silk (Clearance=10mil) (All),(All)</a></td>
+<td class="column2">4</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID3LZPY3LFDPBGNOJCBRSYQRU3HOPV1T4MOOSZCPED4GB0C00GFPGI">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID5P05MVVJWPK1O3YNF0VG0NP3OPXANWKPRXUSGSPKNRNZ5OJM0N3N">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">150</td>
+</tr>
+</table><br><a name="IDWSR4BZQE3WINKERSJH5PIKUNYHQAL00FUZEOLUG4BKX2EDYZDVOB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=10mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2872.328mil|Location2.X=2883.578mil|Location1.Y=2620.359mil|Location2.Y=2631.609mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2872.328mil|Location2.X=2883.578mil|Location1.Y=2620.359mil|Location2.Y=2631.609mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad ATMEGA328-14(2862.205mil,2655.512mil) on Top Layer And Pad ATMEGA328-15(2893.701mil,2655.512mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2903.824mil|Location2.X=2915.074mil|Location1.Y=2620.359mil|Location2.Y=2631.609mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2903.824mil|Location2.X=2915.074mil|Location1.Y=2620.359mil|Location2.Y=2631.609mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad ATMEGA328-15(2893.701mil,2655.512mil) on Top Layer And Pad ATMEGA328-16(2925.197mil,2655.512mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2947.131mil|Location2.X=2958.381mil|Location1.Y=2722.721mil|Location2.Y=2733.971mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2947.131mil|Location2.X=2958.381mil|Location1.Y=2722.721mil|Location2.Y=2733.971mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad ATMEGA328-17(2982.283mil,2712.598mil) on Top Layer And Pad ATMEGA328-18(2982.283mil,2744.094mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2947.131mil|Location2.X=2958.381mil|Location1.Y=2754.217mil|Location2.Y=2765.467mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2947.131mil|Location2.X=2958.381mil|Location1.Y=2754.217mil|Location2.Y=2765.467mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad ATMEGA328-18(2982.283mil,2744.094mil) on Top Layer And Pad ATMEGA328-19(2982.283mil,2775.59mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2947.131mil|Location2.X=2958.381mil|Location1.Y=2785.713mil|Location2.Y=2796.963mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2947.131mil|Location2.X=2958.381mil|Location1.Y=2785.713mil|Location2.Y=2796.963mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad ATMEGA328-19(2982.283mil,2775.59mil) on Top Layer And Pad ATMEGA328-20(2982.283mil,2807.087mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2612.485mil|Location2.X=2623.735mil|Location1.Y=2880.202mil|Location2.Y=2891.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2612.485mil|Location2.X=2623.735mil|Location1.Y=2880.202mil|Location2.Y=2891.452mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad ATMEGA328-2(2647.638mil,2901.575mil) on Top Layer And Pad ATMEGA328-3(2647.638mil,2870.079mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2947.131mil|Location2.X=2958.381mil|Location1.Y=2817.21mil|Location2.Y=2828.46mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2947.131mil|Location2.X=2958.381mil|Location1.Y=2817.21mil|Location2.Y=2828.46mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad ATMEGA328-20(2982.283mil,2807.087mil) on Top Layer And Pad ATMEGA328-21(2982.283mil,2838.583mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2947.131mil|Location2.X=2958.381mil|Location1.Y=2848.706mil|Location2.Y=2859.956mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2947.131mil|Location2.X=2958.381mil|Location1.Y=2848.706mil|Location2.Y=2859.956mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad ATMEGA328-21(2982.283mil,2838.583mil) on Top Layer And Pad ATMEGA328-22(2982.283mil,2870.079mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2809.336mil|Location2.X=2820.586mil|Location1.Y=2955.005mil|Location2.Y=2966.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2809.336mil|Location2.X=2820.586mil|Location1.Y=2955.005mil|Location2.Y=2966.255mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad ATMEGA328-28(2830.709mil,2990.157mil) on Top Layer And Pad ATMEGA328-29(2799.213mil,2990.157mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2777.84mil|Location2.X=2789.09mil|Location1.Y=2955.005mil|Location2.Y=2966.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2777.84mil|Location2.X=2789.09mil|Location1.Y=2955.005mil|Location2.Y=2966.255mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad ATMEGA328-29(2799.213mil,2990.157mil) on Top Layer And Pad ATMEGA328-30(2767.716mil,2990.157mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2612.485mil|Location2.X=2623.735mil|Location1.Y=2848.706mil|Location2.Y=2859.956mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2612.485mil|Location2.X=2623.735mil|Location1.Y=2848.706mil|Location2.Y=2859.956mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad ATMEGA328-3(2647.638mil,2870.079mil) on Top Layer And Pad ATMEGA328-4(2647.638mil,2838.583mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2746.343mil|Location2.X=2757.593mil|Location1.Y=2955.005mil|Location2.Y=2966.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2746.343mil|Location2.X=2757.593mil|Location1.Y=2955.005mil|Location2.Y=2966.255mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad ATMEGA328-30(2767.716mil,2990.157mil) on Top Layer And Pad ATMEGA328-31(2736.22mil,2990.157mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2714.847mil|Location2.X=2726.097mil|Location1.Y=2955.005mil|Location2.Y=2966.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2714.847mil|Location2.X=2726.097mil|Location1.Y=2955.005mil|Location2.Y=2966.255mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad ATMEGA328-31(2736.22mil,2990.157mil) on Top Layer And Pad ATMEGA328-32(2704.724mil,2990.157mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2612.485mil|Location2.X=2623.735mil|Location1.Y=2817.21mil|Location2.Y=2828.46mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2612.485mil|Location2.X=2623.735mil|Location1.Y=2817.21mil|Location2.Y=2828.46mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad ATMEGA328-4(2647.638mil,2838.583mil) on Top Layer And Pad ATMEGA328-5(2647.638mil,2807.087mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2612.485mil|Location2.X=2623.735mil|Location1.Y=2785.713mil|Location2.Y=2796.963mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2612.485mil|Location2.X=2623.735mil|Location1.Y=2785.713mil|Location2.Y=2796.963mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad ATMEGA328-5(2647.638mil,2807.087mil) on Top Layer And Pad ATMEGA328-6(2647.638mil,2775.59mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2612.485mil|Location2.X=2623.735mil|Location1.Y=2754.217mil|Location2.Y=2765.467mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2612.485mil|Location2.X=2623.735mil|Location1.Y=2754.217mil|Location2.Y=2765.467mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad ATMEGA328-6(2647.638mil,2775.59mil) on Top Layer And Pad ATMEGA328-7(2647.638mil,2744.094mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2612.485mil|Location2.X=2623.735mil|Location1.Y=2722.721mil|Location2.Y=2733.971mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2612.485mil|Location2.X=2623.735mil|Location1.Y=2722.721mil|Location2.Y=2733.971mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad ATMEGA328-7(2647.638mil,2744.094mil) on Top Layer And Pad ATMEGA328-8(2647.638mil,2712.598mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3248.312mil|Location2.X=3259.562mil|Location1.Y=2730.595mil|Location2.Y=2741.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3248.312mil|Location2.X=3259.562mil|Location1.Y=2730.595mil|Location2.Y=2741.845mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad EEPROM-5(3241.142mil,2763.78mil) on Top Layer And Pad EEPROM-6(3266.732mil,2763.78mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3273.903mil|Location2.X=3285.153mil|Location1.Y=2730.595mil|Location2.Y=2741.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3273.903mil|Location2.X=3285.153mil|Location1.Y=2730.595mil|Location2.Y=2741.845mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad EEPROM-6(3266.732mil,2763.78mil) on Top Layer And Pad EEPROM-7(3292.323mil,2763.78mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3299.493mil|Location2.X=3310.743mil|Location1.Y=2730.595mil|Location2.Y=2741.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3299.493mil|Location2.X=3310.743mil|Location1.Y=2730.595mil|Location2.Y=2741.845mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad EEPROM-7(3292.323mil,2763.78mil) on Top Layer And Pad EEPROM-8(3317.913mil,2763.78mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2281.777mil|Location2.X=2293.027mil|Location1.Y=2929.414mil|Location2.Y=2940.664mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2281.777mil|Location2.X=2293.027mil|Location1.Y=2929.414mil|Location2.Y=2940.664mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad FT323RL-1(2274.606mil,2968.504mil) on Bottom Layer And Pad FT323RL-2(2300.197mil,2968.504mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2588.863mil|Location2.X=2600.113mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2588.863mil|Location2.X=2600.113mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad FT323RL-15(2607.284mil,2692.913mil) on Bottom Layer And Pad FT323RL-16(2581.693mil,2692.913mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2563.273mil|Location2.X=2574.523mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2563.273mil|Location2.X=2574.523mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad FT323RL-16(2581.693mil,2692.913mil) on Bottom Layer And Pad FT323RL-17(2556.102mil,2692.913mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2537.682mil|Location2.X=2548.932mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2537.682mil|Location2.X=2548.932mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad FT323RL-17(2556.102mil,2692.913mil) on Bottom Layer And Pad FT323RL-18(2530.512mil,2692.913mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2512.091mil|Location2.X=2523.341mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2512.091mil|Location2.X=2523.341mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad FT323RL-18(2530.512mil,2692.913mil) on Bottom Layer And Pad FT323RL-19(2504.921mil,2692.913mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2486.501mil|Location2.X=2497.751mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2486.501mil|Location2.X=2497.751mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad FT323RL-19(2504.921mil,2692.913mil) on Bottom Layer And Pad FT323RL-20(2479.331mil,2692.913mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2307.367mil|Location2.X=2318.617mil|Location1.Y=2929.414mil|Location2.Y=2940.664mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2307.367mil|Location2.X=2318.617mil|Location1.Y=2929.414mil|Location2.Y=2940.664mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad FT323RL-2(2300.197mil,2968.504mil) on Bottom Layer And Pad FT323RL-3(2325.787mil,2968.504mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2460.91mil|Location2.X=2472.16mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2460.91mil|Location2.X=2472.16mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad FT323RL-20(2479.331mil,2692.913mil) on Bottom Layer And Pad FT323RL-21(2453.74mil,2692.913mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2435.32mil|Location2.X=2446.57mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2435.32mil|Location2.X=2446.57mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad FT323RL-21(2453.74mil,2692.913mil) on Bottom Layer And Pad FT323RL-22(2428.15mil,2692.913mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2409.729mil|Location2.X=2420.979mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2409.729mil|Location2.X=2420.979mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad FT323RL-22(2428.15mil,2692.913mil) on Bottom Layer And Pad FT323RL-23(2402.559mil,2692.913mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2384.139mil|Location2.X=2395.389mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2384.139mil|Location2.X=2395.389mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad FT323RL-23(2402.559mil,2692.913mil) on Bottom Layer And Pad FT323RL-24(2376.968mil,2692.913mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2358.548mil|Location2.X=2369.798mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2358.548mil|Location2.X=2369.798mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad FT323RL-24(2376.968mil,2692.913mil) on Bottom Layer And Pad FT323RL-25(2351.378mil,2692.913mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2307.367mil|Location2.X=2318.617mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2307.367mil|Location2.X=2318.617mil|Location1.Y=2653.824mil|Location2.Y=2665.074mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad FT323RL-26(2325.787mil,2692.913mil) on Bottom Layer And Pad FT323RL-27(2300.197mil,2692.913mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2332.958mil|Location2.X=2344.208mil|Location1.Y=2929.414mil|Location2.Y=2940.664mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2332.958mil|Location2.X=2344.208mil|Location1.Y=2929.414mil|Location2.Y=2940.664mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad FT323RL-3(2325.787mil,2968.504mil) on Bottom Layer And Pad FT323RL-4(2351.378mil,2968.504mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2358.548mil|Location2.X=2369.798mil|Location1.Y=2929.414mil|Location2.Y=2940.664mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2358.548mil|Location2.X=2369.798mil|Location1.Y=2929.414mil|Location2.Y=2940.664mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad FT323RL-4(2351.378mil,2968.504mil) on Bottom Layer And Pad FT323RL-5(2376.968mil,2968.504mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2384.139mil|Location2.X=2395.389mil|Location1.Y=2929.414mil|Location2.Y=2940.664mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2384.139mil|Location2.X=2395.389mil|Location1.Y=2929.414mil|Location2.Y=2940.664mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad FT323RL-5(2376.968mil,2968.504mil) on Bottom Layer And Pad FT323RL-6(2402.559mil,2968.504mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2409.729mil|Location2.X=2420.979mil|Location1.Y=2929.414mil|Location2.Y=2940.664mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2409.729mil|Location2.X=2420.979mil|Location1.Y=2929.414mil|Location2.Y=2940.664mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad FT323RL-6(2402.559mil,2968.504mil) on Bottom Layer And Pad FT323RL-7(2428.15mil,2968.504mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2435.32mil|Location2.X=2446.57mil|Location1.Y=2929.414mil|Location2.Y=2940.664mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2435.32mil|Location2.X=2446.57mil|Location1.Y=2929.414mil|Location2.Y=2940.664mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 10mil) Between Pad FT323RL-7(2428.15mil,2968.504mil) on Bottom Layer And Pad FT323RL-8(2453.74mil,2968.504mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1874.296mil|Location2.X=1885.546mil|Location1.Y=2879.218mil|Location2.Y=2890.468mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1874.296mil|Location2.X=1885.546mil|Location1.Y=2879.218mil|Location2.Y=2890.468mil|Absolute=True">Clearance Constraint: (9.842mil &lt; 10mil) Between Pad USB-1(1907.48mil,2897.638mil) on Top Layer And Pad USB-2(1907.48mil,2872.047mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1874.296mil|Location2.X=1885.546mil|Location1.Y=2853.627mil|Location2.Y=2864.877mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1874.296mil|Location2.X=1885.546mil|Location1.Y=2853.627mil|Location2.Y=2864.877mil|Absolute=True">Clearance Constraint: (9.843mil &lt; 10mil) Between Pad USB-2(1907.48mil,2872.047mil) on Top Layer And Pad USB-3(1907.48mil,2846.457mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1874.296mil|Location2.X=1885.546mil|Location1.Y=2828.036mil|Location2.Y=2839.286mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1874.296mil|Location2.X=1885.546mil|Location1.Y=2828.036mil|Location2.Y=2839.286mil|Absolute=True">Clearance Constraint: (9.843mil &lt; 10mil) Between Pad USB-3(1907.48mil,2846.457mil) on Top Layer And Pad USB-4(1907.48mil,2820.866mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1874.296mil|Location2.X=1885.546mil|Location1.Y=2802.446mil|Location2.Y=2813.696mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1874.296mil|Location2.X=1885.546mil|Location1.Y=2802.446mil|Location2.Y=2813.696mil|Absolute=True">Clearance Constraint: (9.842mil &lt; 10mil) Between Pad USB-4(1907.48mil,2820.866mil) on Top Layer And Pad USB-5(1907.48mil,2795.276mil) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID2033MLDBP1KXKASR2R2DVLVWBIMVTWKEVOOECVNQVK0V4JEBI5JG"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2877.89mil|Location2.X=3417.78mil|Location1.Y=1777.496mil|Location2.Y=2689.039mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2877.89mil|Location2.X=3417.78mil|Location1.Y=1777.496mil|Location2.Y=2689.039mil|Absolute=True">Un-Routed Net Constraint: Net MOSI Between Pad ATMEGA328-15(2893.701mil,2655.512mil) on Top Layer [Unplated] And Pad ICSP-4(3384.252mil,1811.024mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2909.386mil|Location2.X=3517.78mil|Location1.Y=1677.496mil|Location2.Y=2689.039mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2909.386mil|Location2.X=3517.78mil|Location1.Y=1677.496mil|Location2.Y=2689.039mil|Absolute=True">Un-Routed Net Constraint: Net MISO Between Pad ATMEGA328-16(2925.197mil,2655.512mil) on Top Layer [Unplated] And Pad ICSP-1(3484.252mil,1711.024mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2948.756mil|Location2.X=3517.78mil|Location1.Y=1777.496mil|Location2.Y=2728.409mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2948.756mil|Location2.X=3517.78mil|Location1.Y=1777.496mil|Location2.Y=2728.409mil|Absolute=True">Un-Routed Net Constraint: Net SCK Between Pad ATMEGA328-17(2982.283mil,2712.598mil) on Top Layer [Unplated] And Pad ICSP-3(3484.252mil,1811.024mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2058.992mil|Location2.X=3015.811mil|Location1.Y=2696.787mil|Location2.Y=2918.37mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2058.992mil|Location2.X=3015.811mil|Location1.Y=2696.787mil|Location2.Y=2918.37mil|Absolute=True">Un-Routed Net Constraint: Net SCK Between Pad R4-2(2082.677mil,2885.827mil) on Top Layer [Unplated] And Pad ATMEGA328-17(2982.283mil,2712.598mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2614.11mil|Location2.X=3015.811mil|Location1.Y=2728.283mil|Location2.Y=2791.401mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2614.11mil|Location2.X=3015.811mil|Location1.Y=2728.283mil|Location2.Y=2791.401mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad ATMEGA328-6(2647.638mil,2775.59mil) on Top Layer [Unplated] And Pad ATMEGA328-18(2982.283mil,2744.094mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2948.756mil|Location2.X=3330.772mil|Location1.Y=2728.283mil|Location2.Y=2795.338mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2948.756mil|Location2.X=3330.772mil|Location1.Y=2728.283mil|Location2.Y=2795.338mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad ATMEGA328-18(2982.283mil,2744.094mil) on Top Layer [Unplated] And Pad EEPROM-8(3317.913mil,2763.78mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2948.756mil|Location2.X=3359.905mil|Location1.Y=2791.276mil|Location2.Y=3255.575mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2948.756mil|Location2.X=3359.905mil|Location1.Y=2791.276mil|Location2.Y=3255.575mil|Absolute=True">Un-Routed Net Constraint: Net NetATMEGA328_20 Between Pad ATMEGA328-20(2982.283mil,2807.087mil) on Top Layer [Unplated] And Pad C8-2(3340.55mil,3232.283mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2614.11mil|Location2.X=3015.811mil|Location1.Y=2791.276mil|Location2.Y=2854.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2614.11mil|Location2.X=3015.811mil|Location1.Y=2791.276mil|Location2.Y=2854.394mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad ATMEGA328-5(2647.638mil,2807.087mil) on Top Layer [Unplated] And Pad ATMEGA328-21(2982.283mil,2838.583mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2948.756mil|Location2.X=3254mil|Location1.Y=2822.772mil|Location2.Y=2968.567mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2948.756mil|Location2.X=3254mil|Location1.Y=2822.772mil|Location2.Y=2968.567mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad ATMEGA328-21(2982.283mil,2838.583mil) on Top Layer [Unplated] And Pad EEPROM-4(3241.142mil,2937.008mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2342.851mil|Location2.X=2815.024mil|Location1.Y=2956.63mil|Location2.Y=3098.094mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2342.851mil|Location2.X=2815.024mil|Location1.Y=2956.63mil|Location2.Y=3098.094mil|Absolute=True">Un-Routed Net Constraint: Net RESET Between Pad C4-1(2362.205mil,3074.803mil) on Bottom Layer [Unplated] And Pad ATMEGA328-29(2799.213mil,2990.157mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2783.402mil|Location2.X=3517.78mil|Location1.Y=1877.496mil|Location2.Y=3023.685mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2783.402mil|Location2.X=3517.78mil|Location1.Y=1877.496mil|Location2.Y=3023.685mil|Absolute=True">Un-Routed Net Constraint: Net RESET Between Pad ATMEGA328-29(2799.213mil,2990.157mil) on Top Layer [Unplated] And Pad ICSP-5(3484.252mil,1911.024mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2614.11mil|Location2.X=2681.165mil|Location1.Y=2791.276mil|Location2.Y=2885.89mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2614.11mil|Location2.X=2681.165mil|Location1.Y=2791.276mil|Location2.Y=2885.89mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad ATMEGA328-5(2647.638mil,2807.087mil) on Top Layer [Unplated] And Pad ATMEGA328-3(2647.638mil,2870.079mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2751.905mil|Location2.X=3055.181mil|Location1.Y=2956.63mil|Location2.Y=3245.142mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2751.905mil|Location2.X=3055.181mil|Location1.Y=2956.63mil|Location2.Y=3245.142mil|Absolute=True">Un-Routed Net Constraint: Net NetATMEGA328_30 Between Pad ATMEGA328-30(2767.716mil,2990.157mil) on Top Layer [Unplated] And Pad R6-1(3031.496mil,3212.598mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2720.409mil|Location2.X=3232.346mil|Location1.Y=2956.63mil|Location2.Y=3245.142mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2720.409mil|Location2.X=3232.346mil|Location1.Y=2956.63mil|Location2.Y=3245.142mil|Absolute=True">Un-Routed Net Constraint: Net NetATMEGA328_31 Between Pad ATMEGA328-31(2736.22mil,2990.157mil) on Top Layer [Unplated] And Pad R5-1(3208.661mil,3212.598mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2614.11mil|Location2.X=2681.165mil|Location1.Y=2759.78mil|Location2.Y=2854.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2614.11mil|Location2.X=2681.165mil|Location1.Y=2759.78mil|Location2.Y=2854.394mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad ATMEGA328-6(2647.638mil,2775.59mil) on Top Layer [Unplated] And Pad ATMEGA328-4(2647.638mil,2838.583mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2517.654mil|Location2.X=2681.165mil|Location1.Y=2655.449mil|Location2.Y=2822.898mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2517.654mil|Location2.X=2681.165mil|Location1.Y=2655.449mil|Location2.Y=2822.898mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad FT323RL-18(2530.512mil,2692.913mil) on Bottom Layer [Unplated] And Pad ATMEGA328-5(2647.638mil,2807.087mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2466.472mil|Location2.X=2681.165mil|Location1.Y=2655.449mil|Location2.Y=2791.401mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2466.472mil|Location2.X=2681.165mil|Location1.Y=2655.449mil|Location2.Y=2791.401mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad FT323RL-20(2479.331mil,2692.913mil) on Bottom Layer [Unplated] And Pad ATMEGA328-6(2647.638mil,2775.59mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2614.11mil|Location2.X=2755.968mil|Location1.Y=2464.504mil|Location2.Y=2759.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2614.11mil|Location2.X=2755.968mil|Location1.Y=2464.504mil|Location2.Y=2759.905mil|Absolute=True">Un-Routed Net Constraint: Net NetATMEGA328_7 Between Pad ATMEGA328-7(2647.638mil,2744.094mil) on Top Layer [Unplated] And Pad Y1-3(2724.41mil,2492.126mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2606.236mil|Location2.X=2681.165mil|Location1.Y=2397.575mil|Location2.Y=2728.409mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2606.236mil|Location2.X=2681.165mil|Location1.Y=2397.575mil|Location2.Y=2728.409mil|Absolute=True">Un-Routed Net Constraint: Net NetATMEGA328_8 Between Pad Y1-1(2637.795mil,2425.197mil) on Top Layer [Unplated] And Pad ATMEGA328-8(2647.638mil,2712.598mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3084.583mil|Location2.X=3179.197mil|Location1.Y=2336.551mil|Location2.Y=2368.173mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3084.583mil|Location2.X=3179.197mil|Location1.Y=2336.551mil|Location2.Y=2368.173mil|Absolute=True">Un-Routed Net Constraint: Net +3V3 Between Pad BMP180-2(3102.362mil,2352.362mil) on Top Layer [Unplated] And Pad BMP180-3(3161.417mil,2352.362mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2520.016mil|Location2.X=3120.142mil|Location1.Y=2336.551mil|Location2.Y=2605.968mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2520.016mil|Location2.X=3120.142mil|Location1.Y=2336.551mil|Location2.Y=2605.968mil|Absolute=True">Un-Routed Net Constraint: Net +3V3 Between Pad C5-2(2539.37mil,2582.677mil) on Bottom Layer [Unplated] And Pad BMP180-2(3102.362mil,2352.362mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3142.063mil|Location2.X=3180.772mil|Location1.Y=2224.74mil|Location2.Y=2368.173mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3142.063mil|Location2.X=3180.772mil|Location1.Y=2224.74mil|Location2.Y=2368.173mil|Absolute=True">Un-Routed Net Constraint: Net +3V3 Between Pad BMP180-3(3161.417mil,2352.362mil) on Top Layer [Unplated] And Pad C3-2(3161.417mil,2248.032mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3084.583mil|Location2.X=3279.59mil|Location1.Y=2450.724mil|Location2.Y=2795.338mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3084.583mil|Location2.X=3279.59mil|Location1.Y=2450.724mil|Location2.Y=2795.338mil|Absolute=True">Un-Routed Net Constraint: Net SCL Between Pad BMP180-5(3102.362mil,2466.535mil) on Top Layer [Unplated] And Pad EEPROM-6(3266.732mil,2763.78mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3025.528mil|Location2.X=3254mil|Location1.Y=2450.724mil|Location2.Y=2795.338mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3025.528mil|Location2.X=3254mil|Location1.Y=2450.724mil|Location2.Y=2795.338mil|Absolute=True">Un-Routed Net Constraint: Net SDA Between Pad BMP180-6(3043.307mil,2466.535mil) on Top Layer [Unplated] And Pad EEPROM-5(3241.142mil,2763.78mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3029.465mil|Location2.X=3125.653mil|Location1.Y=2224.74mil|Location2.Y=2425.26mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3029.465mil|Location2.X=3125.653mil|Location1.Y=2224.74mil|Location2.Y=2425.26mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad BMP180-7(3043.307mil,2409.449mil) on Top Layer [Unplated] And Pad C3-1(3106.299mil,2248.032mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2807.417mil|Location2.X=3057.15mil|Location1.Y=2393.638mil|Location2.Y=2456.362mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2807.417mil|Location2.X=3057.15mil|Location1.Y=2393.638mil|Location2.Y=2456.362mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C9-1(2830.709mil,2437.008mil) on Top Layer [Unplated] And Pad BMP180-7(3043.307mil,2409.449mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2464.898mil|Location2.X=2562.661mil|Location1.Y=2476.709mil|Location2.Y=2605.968mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2464.898mil|Location2.X=2562.661mil|Location1.Y=2476.709mil|Location2.Y=2605.968mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C5-1(2484.252mil,2582.677mil) on Bottom Layer [Unplated] And Pad C10-1(2539.37mil,2496.063mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2516.079mil|Location2.X=2669.354mil|Location1.Y=2464.504mil|Location2.Y=2519.748mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2516.079mil|Location2.X=2669.354mil|Location1.Y=2464.504mil|Location2.Y=2519.748mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C10-1(2539.37mil,2496.063mil) on Top Layer [Unplated] And Pad Y1-4(2637.795mil,2492.126mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2516.079mil|Location2.X=2669.354mil|Location1.Y=2397.575mil|Location2.Y=2460.299mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2516.079mil|Location2.X=2669.354mil|Location1.Y=2397.575mil|Location2.Y=2460.299mil|Absolute=True">Un-Routed Net Constraint: Net NetATMEGA328_8 Between Pad C10-2(2539.37mil,2440.945mil) on Top Layer [Unplated] And Pad Y1-1(2637.795mil,2425.197mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1878.283mil|Location2.X=1948.488mil|Location1.Y=3193.244mil|Location2.Y=3590.22mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1878.283mil|Location2.X=1948.488mil|Location1.Y=3193.244mil|Location2.Y=3590.22mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C1-1(1897.638mil,3216.535mil) on Bottom Layer [Unplated] And Pad C12-1(1925.197mil,3570.866mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1878.283mil|Location2.X=1920.929mil|Location1.Y=3110.567mil|Location2.Y=3239.827mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1878.283mil|Location2.X=1920.929mil|Location1.Y=3110.567mil|Location2.Y=3239.827mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C1-1(1897.638mil,3216.535mil) on Bottom Layer [Unplated] And Pad C2-1(1901.575mil,3133.858mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1819.228mil|Location2.X=1948.488mil|Location1.Y=3551.512mil|Location2.Y=3590.22mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1819.228mil|Location2.X=1948.488mil|Location1.Y=3551.512mil|Location2.Y=3590.22mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C11-1(1842.52mil,3570.866mil) on Bottom Layer [Unplated] And Pad C12-1(1925.197mil,3570.866mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1819.228mil|Location2.X=1948.488mil|Location1.Y=3496.394mil|Location2.Y=3535.102mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1819.228mil|Location2.X=1948.488mil|Location1.Y=3496.394mil|Location2.Y=3535.102mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad C11-2(1842.52mil,3515.748mil) on Bottom Layer [Unplated] And Pad C12-2(1925.197mil,3515.748mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1693.835mil|Location2.X=1951.835mil|Location1.Y=3496.394mil|Location2.Y=3908.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1693.835mil|Location2.X=1951.835mil|Location1.Y=3496.394mil|Location2.Y=3908.528mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad IC6-4(1822.835mil,3795.276mil) on Bottom Layer [Unplated] And Pad C11-2(1842.52mil,3515.748mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1933.402mil|Location2.X=1976.047mil|Location1.Y=3110.567mil|Location2.Y=3239.827mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1933.402mil|Location2.X=1976.047mil|Location1.Y=3110.567mil|Location2.Y=3239.827mil|Absolute=True">Un-Routed Net Constraint: Net VBUS Between Pad C1-2(1952.756mil,3216.535mil) on Bottom Layer [Unplated] And Pad C2-2(1956.693mil,3133.858mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1933.402mil|Location2.X=2048.488mil|Location1.Y=3191.472mil|Location2.Y=3249.472mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1933.402mil|Location2.X=2048.488mil|Location1.Y=3191.472mil|Location2.Y=3249.472mil|Absolute=True">Un-Routed Net Constraint: Net VBUS Between Pad C1-2(1952.756mil,3216.535mil) on Bottom Layer [Unplated] And Pad D1-1(2029.488mil,3220.472mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1901.906mil|Location2.X=2031.165mil|Location1.Y=3551.512mil|Location2.Y=3590.221mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1901.906mil|Location2.X=2031.165mil|Location1.Y=3551.512mil|Location2.Y=3590.221mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C12-1(1925.197mil,3570.866mil) on Bottom Layer [Unplated] And Pad C13-1(2007.874mil,3570.866mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1901.906mil|Location2.X=2031.165mil|Location1.Y=3496.394mil|Location2.Y=3535.102mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1901.906mil|Location2.X=2031.165mil|Location1.Y=3496.394mil|Location2.Y=3535.102mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad C12-2(1925.197mil,3515.748mil) on Bottom Layer [Unplated] And Pad C13-2(2007.874mil,3515.748mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1984.583mil|Location2.X=2109.905mil|Location1.Y=3551.512mil|Location2.Y=3590.221mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1984.583mil|Location2.X=2109.905mil|Location1.Y=3551.512mil|Location2.Y=3590.221mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C13-1(2007.874mil,3570.866mil) on Bottom Layer [Unplated] And Pad C7-1(2086.614mil,3570.866mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1984.583mil|Location2.X=2109.905mil|Location1.Y=3496.394mil|Location2.Y=3535.102mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1984.583mil|Location2.X=2109.905mil|Location1.Y=3496.394mil|Location2.Y=3535.102mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad C13-2(2007.874mil,3515.748mil) on Bottom Layer [Unplated] And Pad C7-2(2086.614mil,3515.748mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1763.854mil|Location2.X=1920.929mil|Location1.Y=2943.972mil|Location2.Y=3157.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1763.854mil|Location2.X=1920.929mil|Location1.Y=2943.972mil|Location2.Y=3157.15mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad USB-8(1807.087mil,2987.205mil) on Multi-Layer And Pad C2-1(1901.575mil,3133.858mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1875.921mil|Location2.X=1976.047mil|Location1.Y=2885.764mil|Location2.Y=3157.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1875.921mil|Location2.X=1976.047mil|Location1.Y=2885.764mil|Location2.Y=3157.15mil|Absolute=True">Un-Routed Net Constraint: Net VBUS Between Pad USB-1(1907.48mil,2897.638mil) on Top Layer [Unplated] And Pad C2-2(1956.693mil,3133.858mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3086.945mil|Location2.X=3417.78mil|Location1.Y=1877.496mil|Location2.Y=2271.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3086.945mil|Location2.X=3417.78mil|Location1.Y=1877.496mil|Location2.Y=2271.323mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C3-1(3106.299mil,2248.032mil) on Top Layer [Unplated] And Pad ICSP-6(3384.252mil,1911.024mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2287.339mil|Location2.X=2326.441mil|Location1.Y=2931.039mil|Location2.Y=3098.094mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2287.339mil|Location2.X=2326.441mil|Location1.Y=2931.039mil|Location2.Y=3098.094mil|Absolute=True">Un-Routed Net Constraint: Net NetC4_2 Between Pad FT323RL-2(2300.197mil,2968.504mil) on Bottom Layer [Unplated] And Pad C4-2(2307.087mil,3074.803mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2440.882mil|Location2.X=2503.606mil|Location1.Y=2559.386mil|Location2.Y=2730.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2440.882mil|Location2.X=2503.606mil|Location1.Y=2559.386mil|Location2.Y=2730.378mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad FT323RL-21(2453.74mil,2692.913mil) on Bottom Layer [Unplated] And Pad C5-1(2484.252mil,2582.677mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1988.52mil|Location2.X=2558.724mil|Location1.Y=1937.339mil|Location2.Y=2605.968mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1988.52mil|Location2.X=2558.724mil|Location1.Y=1937.339mil|Location2.Y=2605.968mil|Absolute=True">Un-Routed Net Constraint: Net +3V3 Between Pad C6-2(2007.874mil,1960.63mil) on Bottom Layer [Unplated] And Pad C5-2(2539.37mil,2582.677mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2520.016mil|Location2.X=2568.961mil|Location1.Y=2559.386mil|Location2.Y=2730.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2520.016mil|Location2.X=2568.961mil|Location1.Y=2559.386mil|Location2.Y=2730.378mil|Absolute=True">Un-Routed Net Constraint: Net +3V3 Between Pad C5-2(2539.37mil,2582.677mil) on Bottom Layer [Unplated] And Pad FT323RL-17(2556.102mil,2692.913mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2043.638mil|Location2.X=2338.646mil|Location1.Y=1937.339mil|Location2.Y=2730.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2043.638mil|Location2.X=2338.646mil|Location1.Y=1937.339mil|Location2.Y=2730.378mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C6-1(2062.992mil,1960.63mil) on Bottom Layer [Unplated] And Pad FT323RL-26(2325.787mil,2692.913mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2043.638mil|Location2.X=2237.867mil|Location1.Y=1792.657mil|Location2.Y=1983.921mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2043.638mil|Location2.X=2237.867mil|Location1.Y=1792.657mil|Location2.Y=1983.921mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C6-1(2062.992mil,1960.63mil) on Bottom Layer [Unplated] And Pad IC5-1(2191.544mil,1822.247mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1812.937mil|Location2.X=2045.347mil|Location1.Y=1620.019mil|Location2.Y=1983.921mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1812.937mil|Location2.X=2045.347mil|Location1.Y=1620.019mil|Location2.Y=1983.921mil|Absolute=True">Un-Routed Net Constraint: Net +3V3 Between Pad IC5-4(1929.142mil,1732.286mil) on Bottom Layer [Unplated] And Pad C6-2(2007.874mil,1960.63mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2063.323mil|Location2.X=2140.811mil|Location1.Y=3551.512mil|Location2.Y=3908.921mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2063.323mil|Location2.X=2140.811mil|Location1.Y=3551.512mil|Location2.Y=3908.921mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C7-1(2086.614mil,3570.866mil) on Bottom Layer [Unplated] And Pad IC6-1(2102.362mil,3885.236mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2063.323mil|Location2.X=2178.606mil|Location1.Y=3166.472mil|Location2.Y=3535.102mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2063.323mil|Location2.X=2178.606mil|Location1.Y=3166.472mil|Location2.Y=3535.102mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad C7-2(2086.614mil,3515.748mil) on Bottom Layer [Unplated] And Pad D1-2(2122.047mil,3220.472mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3305.055mil|Location2.X=3415.023mil|Location1.Y=2905.449mil|Location2.Y=3255.575mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3305.055mil|Location2.X=3415.023mil|Location1.Y=2905.449mil|Location2.Y=3255.575mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad EEPROM-1(3317.913mil,2937.008mil) on Top Layer [Unplated] And Pad C8-1(3395.669mil,3232.283mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2606.236mil|Location2.X=2854mil|Location1.Y=2417.654mil|Location2.Y=2519.748mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2606.236mil|Location2.X=2854mil|Location1.Y=2417.654mil|Location2.Y=2519.748mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Y1-4(2637.795mil,2492.126mil) on Top Layer [Unplated] And Pad C9-1(2830.709mil,2437.008mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2692.851mil|Location2.X=2854mil|Location1.Y=2464.504mil|Location2.Y=2519.748mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2692.851mil|Location2.X=2854mil|Location1.Y=2464.504mil|Location2.Y=2519.748mil|Absolute=True">Un-Routed Net Constraint: Net NetATMEGA328_7 Between Pad Y1-3(2724.41mil,2492.126mil) on Top Layer [Unplated] And Pad C9-2(2830.709mil,2492.126mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2065.488mil|Location2.X=2364.236mil|Location1.Y=2931.039mil|Location2.Y=3274.472mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2065.488mil|Location2.X=2364.236mil|Location1.Y=2931.039mil|Location2.Y=3274.472mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad D1-2(2122.047mil,3220.472mil) on Bottom Layer [Unplated] And Pad FT323RL-4(2351.378mil,2968.504mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2345.409mil|Location2.X=2441.008mil|Location1.Y=2931.039mil|Location2.Y=3014.827mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2345.409mil|Location2.X=2441.008mil|Location1.Y=2931.039mil|Location2.Y=3014.827mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad D13-1(2366.142mil,2992.126mil) on Top Layer [Unplated] And Pad FT323RL-7(2428.15mil,2968.504mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2133.795mil|Location2.X=2323.882mil|Location1.Y=2853.284mil|Location2.Y=3014.827mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2133.795mil|Location2.X=2323.882mil|Location1.Y=2853.284mil|Location2.Y=3014.827mil|Absolute=True">Un-Routed Net Constraint: Net NetD13_2 Between Pad R4-1(2157.48mil,2885.827mil) on Top Layer [Unplated] And Pad D13-2(2303.149mil,2992.126mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3279.465mil|Location2.X=3330.772mil|Location1.Y=2905.449mil|Location2.Y=2968.567mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3279.465mil|Location2.X=3330.772mil|Location1.Y=2905.449mil|Location2.Y=2968.567mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad EEPROM-2(3292.323mil,2937.008mil) on Top Layer [Unplated] And Pad EEPROM-1(3317.913mil,2937.008mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3253.874mil|Location2.X=3305.181mil|Location1.Y=2905.449mil|Location2.Y=2968.567mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3253.874mil|Location2.X=3305.181mil|Location1.Y=2905.449mil|Location2.Y=2968.567mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad EEPROM-3(3266.732mil,2937.008mil) on Top Layer [Unplated] And Pad EEPROM-2(3292.323mil,2937.008mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3279.465mil|Location2.X=3305.181mil|Location1.Y=2732.22mil|Location2.Y=2968.567mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3279.465mil|Location2.X=3305.181mil|Location1.Y=2732.22mil|Location2.Y=2968.567mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad EEPROM-7(3292.323mil,2763.78mil) on Top Layer [Unplated] And Pad EEPROM-2(3292.323mil,2937.008mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3228.284mil|Location2.X=3279.59mil|Location1.Y=2905.449mil|Location2.Y=2968.567mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3228.284mil|Location2.X=3279.59mil|Location1.Y=2905.449mil|Location2.Y=2968.567mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad EEPROM-4(3241.142mil,2937.008mil) on Top Layer [Unplated] And Pad EEPROM-3(3266.732mil,2937.008mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3305.055mil|Location2.X=3417.78mil|Location1.Y=1677.496mil|Location2.Y=2795.338mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3305.055mil|Location2.X=3417.78mil|Location1.Y=1677.496mil|Location2.Y=2795.338mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad EEPROM-8(3317.913mil,2763.78mil) on Top Layer [Unplated] And Pad ICSP-2(3384.252mil,1711.024mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2261.748mil|Location2.X=2980.378mil|Location1.Y=2931.039mil|Location2.Y=3245.142mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2261.748mil|Location2.X=2980.378mil|Location1.Y=2931.039mil|Location2.Y=3245.142mil|Absolute=True">Un-Routed Net Constraint: Net RX Between Pad FT323RL-1(2274.606mil,2968.504mil) on Bottom Layer [Unplated] And Pad R6-2(2956.693mil,3212.598mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1875.921mil|Location2.X=2620.142mil|Location1.Y=2655.449mil|Location2.Y=2858.331mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1875.921mil|Location2.X=2620.142mil|Location1.Y=2655.449mil|Location2.Y=2858.331mil|Absolute=True">Un-Routed Net Constraint: Net D+ Between Pad USB-3(1907.48mil,2846.457mil) on Top Layer [Unplated] And Pad FT323RL-15(2607.284mil,2692.913mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1875.921mil|Location2.X=2594.551mil|Location1.Y=2655.449mil|Location2.Y=2883.921mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1875.921mil|Location2.X=2594.551mil|Location1.Y=2655.449mil|Location2.Y=2883.921mil|Absolute=True">Un-Routed Net Constraint: Net D- Between Pad USB-2(1907.48mil,2872.047mil) on Top Layer [Unplated] And Pad FT323RL-16(2581.693mil,2692.913mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2440.882mil|Location2.X=2543.37mil|Location1.Y=2655.449mil|Location2.Y=2730.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2440.882mil|Location2.X=2543.37mil|Location1.Y=2655.449mil|Location2.Y=2730.378mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad FT323RL-21(2453.74mil,2692.913mil) on Bottom Layer [Unplated] And Pad FT323RL-18(2530.512mil,2692.913mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2286.354mil|Location2.X=2492.189mil|Location1.Y=2655.449mil|Location2.Y=2802.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2286.354mil|Location2.X=2492.189mil|Location1.Y=2655.449mil|Location2.Y=2802.228mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad TX-2(2307.086mil,2779.528mil) on Top Layer [Unplated] And Pad FT323RL-20(2479.331mil,2692.913mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2338.52mil|Location2.X=2466.598mil|Location1.Y=2655.449mil|Location2.Y=2730.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2338.52mil|Location2.X=2466.598mil|Location1.Y=2655.449mil|Location2.Y=2730.378mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad FT323RL-25(2351.378mil,2692.913mil) on Bottom Layer [Unplated] And Pad FT323RL-21(2453.74mil,2692.913mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2415.291mil|Location2.X=2466.598mil|Location1.Y=2655.449mil|Location2.Y=3005.968mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2415.291mil|Location2.X=2466.598mil|Location1.Y=2655.449mil|Location2.Y=3005.968mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad FT323RL-7(2428.15mil,2968.504mil) on Bottom Layer [Unplated] And Pad FT323RL-21(2453.74mil,2692.913mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2133.795mil|Location2.X=2441.008mil|Location1.Y=2655.449mil|Location2.Y=3028.606mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2133.795mil|Location2.X=2441.008mil|Location1.Y=2655.449mil|Location2.Y=3028.606mil|Absolute=True">Un-Routed Net Constraint: Net NetFT323RL_22 Between Pad R2-1(2157.48mil,2996.063mil) on Top Layer [Unplated] And Pad FT323RL-22(2428.15mil,2692.913mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2057.024mil|Location2.X=2415.417mil|Location1.Y=2644.622mil|Location2.Y=2730.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2057.024mil|Location2.X=2415.417mil|Location1.Y=2644.622mil|Location2.Y=2730.378mil|Absolute=True">Un-Routed Net Constraint: Net NetFT323RL_23 Between Pad R1-1(2080.709mil,2677.165mil) on Top Layer [Unplated] And Pad FT323RL-23(2402.559mil,2692.913mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2312.929mil|Location2.X=2364.236mil|Location1.Y=2655.449mil|Location2.Y=2730.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2312.929mil|Location2.X=2364.236mil|Location1.Y=2655.449mil|Location2.Y=2730.378mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad FT323RL-26(2325.787mil,2692.913mil) on Bottom Layer [Unplated] And Pad FT323RL-25(2351.378mil,2692.913mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2338.52mil|Location2.X=2390.811mil|Location1.Y=2655.449mil|Location2.Y=2730.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2338.52mil|Location2.X=2390.811mil|Location1.Y=2655.449mil|Location2.Y=2730.378mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad FT323RL-25(2351.378mil,2692.913mil) on Bottom Layer [Unplated] And Pad PWR-1(2370.079mil,2681.102mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1763.854mil|Location2.X=2338.646mil|Location1.Y=2655.449mil|Location2.Y=2748.941mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1763.854mil|Location2.X=2338.646mil|Location1.Y=2655.449mil|Location2.Y=2748.941mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad USB-9(1807.087mil,2705.709mil) on Multi-Layer And Pad FT323RL-26(2325.787mil,2692.913mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2286.354mil|Location2.X=2364.236mil|Location1.Y=2863.126mil|Location2.Y=3005.968mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2286.354mil|Location2.X=2364.236mil|Location1.Y=2863.126mil|Location2.Y=3005.968mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad RX-2(2307.087mil,2885.827mil) on Top Layer [Unplated] And Pad FT323RL-4(2351.378mil,2968.504mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2364.11mil|Location2.X=3157.543mil|Location1.Y=2931.039mil|Location2.Y=3245.142mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2364.11mil|Location2.X=3157.543mil|Location1.Y=2931.039mil|Location2.Y=3245.142mil|Absolute=True">Un-Routed Net Constraint: Net TX Between Pad FT323RL-5(2376.968mil,2968.504mil) on Bottom Layer [Unplated] And Pad R5-2(3133.858mil,3212.598mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2063.913mil|Location2.X=2237.867mil|Location1.Y=1612.735mil|Location2.Y=3729mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2063.913mil|Location2.X=2237.867mil|Location1.Y=1612.735mil|Location2.Y=3729mil|Absolute=True">Un-Routed Net Constraint: Net VIN Between Pad IC6-3(2102.362mil,3705.315mil) on Bottom Layer [Unplated] And Pad IC5-3(2191.544mil,1642.326mil) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2133.795mil|Location2.X=2327.819mil|Location1.Y=2658.402mil|Location2.Y=2816.008mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2133.795mil|Location2.X=2327.819mil|Location1.Y=2658.402mil|Location2.Y=2816.008mil|Absolute=True">Un-Routed Net Constraint: Net NetPWR_2 Between Pad R3-2(2157.48mil,2783.465mil) on Top Layer [Unplated] And Pad PWR-2(2307.087mil,2681.102mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2131.827mil|Location2.X=2390.811mil|Location1.Y=2644.622mil|Location2.Y=2908.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2131.827mil|Location2.X=2390.811mil|Location1.Y=2644.622mil|Location2.Y=2908.528mil|Absolute=True">Un-Routed Net Constraint: Net NetR1_2 Between Pad R1-2(2155.512mil,2677.165mil) on Top Layer [Unplated] And Pad RX-1(2370.079mil,2885.827mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2058.992mil|Location2.X=2390.811mil|Location1.Y=2756.827mil|Location2.Y=3028.606mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2058.992mil|Location2.X=2390.811mil|Location1.Y=2756.827mil|Location2.Y=3028.606mil|Absolute=True">Un-Routed Net Constraint: Net NetR2_2 Between Pad R2-2(2082.677mil,2996.063mil) on Top Layer [Unplated] And Pad TX-1(2370.079mil,2779.528mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2058.992mil|Location2.X=2327.819mil|Location1.Y=2750.921mil|Location2.Y=2816.008mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2058.992mil|Location2.X=2327.819mil|Location1.Y=2750.921mil|Location2.Y=2816.008mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad R3-1(2082.677mil,2783.465mil) on Top Layer [Unplated] And Pad TX-2(2307.086mil,2779.528mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2286.354mil|Location2.X=2327.819mil|Location1.Y=2756.827mil|Location2.Y=2908.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2286.354mil|Location2.X=2327.819mil|Location1.Y=2756.827mil|Location2.Y=2908.528mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad TX-2(2307.086mil,2779.528mil) on Top Layer [Unplated] And Pad RX-2(2307.087mil,2885.827mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1763.716mil|Location2.X=1939.039mil|Location1.Y=2757.811mil|Location2.Y=2840.614mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1763.716mil|Location2.X=1939.039mil|Location1.Y=2757.811mil|Location2.Y=2840.614mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad USB-7(1807.087mil,2799.213mil) on Top Layer [Unplated] And Pad USB-5(1907.48mil,2795.276mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1763.716mil|Location2.X=1850.457mil|Location1.Y=2757.811mil|Location2.Y=2935.102mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1763.716mil|Location2.X=1850.457mil|Location1.Y=2757.811mil|Location2.Y=2935.102mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad USB-7(1807.087mil,2799.213mil) on Top Layer [Unplated] And Pad USB-6(1807.087mil,2893.701mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1763.716mil|Location2.X=1850.457mil|Location1.Y=2852.299mil|Location2.Y=3030.437mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1763.716mil|Location2.X=1850.457mil|Location1.Y=2852.299mil|Location2.Y=3030.437mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad USB-6(1807.087mil,2893.701mil) on Top Layer [Unplated] And Pad USB-8(1807.087mil,2987.205mil) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1763.716mil|Location2.X=1850.457mil|Location1.Y=2662.476mil|Location2.Y=2840.614mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1763.716mil|Location2.X=1850.457mil|Location1.Y=2662.476mil|Location2.Y=2840.614mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad USB-9(1807.087mil,2705.709mil) on Multi-Layer And Pad USB-7(1807.087mil,2799.213mil) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID5U5OBAQXIGTFJDU2B0PLFMAEGDR4IIYTU0VBTL0H3STZ34SVCXM"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=10mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1870.296mil|Location2.X=1881.546mil|Location1.Y=2879.218mil|Location2.Y=2890.468mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1870.296mil|Location2.X=1881.546mil|Location1.Y=2879.218mil|Location2.Y=2890.468mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.842mil &lt; 10mil) Between Pad USB-1(1907.48mil,2897.638mil) on Top Layer And Pad USB-2(1907.48mil,2872.047mil) on Top Layer [Top Solder] Mask Sliver [1.842mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1870.296mil|Location2.X=1881.546mil|Location1.Y=2853.627mil|Location2.Y=2864.877mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1870.296mil|Location2.X=1881.546mil|Location1.Y=2853.627mil|Location2.Y=2864.877mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 10mil) Between Pad USB-2(1907.48mil,2872.047mil) on Top Layer And Pad USB-3(1907.48mil,2846.457mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1870.296mil|Location2.X=1881.546mil|Location1.Y=2828.036mil|Location2.Y=2839.286mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1870.296mil|Location2.X=1881.546mil|Location1.Y=2828.036mil|Location2.Y=2839.286mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 10mil) Between Pad USB-3(1907.48mil,2846.457mil) on Top Layer And Pad USB-4(1907.48mil,2820.866mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1870.296mil|Location2.X=1881.546mil|Location1.Y=2802.446mil|Location2.Y=2813.696mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1870.296mil|Location2.X=1881.546mil|Location1.Y=2802.446mil|Location2.Y=2813.696mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.842mil &lt; 10mil) Between Pad USB-4(1907.48mil,2820.866mil) on Top Layer And Pad USB-5(1907.48mil,2795.276mil) on Top Layer [Top Solder] Mask Sliver [1.842mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1801.462mil|Location2.X=1812.712mil|Location1.Y=2933.912mil|Location2.Y=2945.162mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1801.462mil|Location2.X=1812.712mil|Location1.Y=2933.912mil|Location2.Y=2945.162mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (8.87mil &lt; 10mil) Between Pad USB-6(1807.087mil,2893.701mil) on Top Layer And Pad USB-8(1807.087mil,2987.205mil) on Multi-Layer [Top Solder] Mask Sliver [8.87mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1801.462mil|Location2.X=1812.712mil|Location1.Y=2747.751mil|Location2.Y=2759.001mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1801.462mil|Location2.X=1812.712mil|Location1.Y=2747.751mil|Location2.Y=2759.001mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (8.87mil &lt; 10mil) Between Pad USB-7(1807.087mil,2799.213mil) on Top Layer And Pad USB-9(1807.087mil,2705.709mil) on Multi-Layer [Top Solder] Mask Sliver [8.87mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDKVA1MZY2RL54DSAEO3TGVVJYBJNILM4C1WEBDVCG1FNDG1USKMCC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=5mil) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2635.418mil|Location2.X=2641.668mil|Location1.Y=2396.875mil|Location2.Y=2403.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2635.418mil|Location2.X=2641.668mil|Location1.Y=2396.875mil|Location2.Y=2403.125mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (3.15mil &lt; 5mil) Between Arc (2638.543mil,2392.008mil) on Top Overlay And Pad Y1-1(2637.795mil,2425.197mil) on Top Layer [Top Overlay] to [Top Solder] clearance [3.15mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3024.926mil|Location2.X=3031.176mil|Location1.Y=2361.048mil|Location2.Y=2367.298mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3024.926mil|Location2.X=3031.176mil|Location1.Y=2361.048mil|Location2.Y=2367.298mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (2.953mil &lt; 5mil) Between Pad BMP180-1(3043.307mil,2352.362mil) on Top Layer And Track (3022.638mil,2333.661mil)(3022.638mil,2485.236mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.953mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3053.962mil|Location2.X=3060.212mil|Location1.Y=2335.95mil|Location2.Y=2342.2mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3053.962mil|Location2.X=3060.212mil|Location1.Y=2335.95mil|Location2.Y=2342.2mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (2.953mil &lt; 5mil) Between Pad BMP180-1(3043.307mil,2352.362mil) on Top Layer And Track (3022.638mil,2333.661mil)(3182.087mil,2333.661mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.953mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3113.017mil|Location2.X=3119.267mil|Location1.Y=2335.95mil|Location2.Y=2342.2mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3113.017mil|Location2.X=3119.267mil|Location1.Y=2335.95mil|Location2.Y=2342.2mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (2.953mil &lt; 5mil) Between Pad BMP180-2(3102.362mil,2352.362mil) on Top Layer And Track (3022.638mil,2333.661mil)(3182.087mil,2333.661mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.953mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3172.072mil|Location2.X=3178.322mil|Location1.Y=2335.95mil|Location2.Y=2342.2mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3172.072mil|Location2.X=3178.322mil|Location1.Y=2335.95mil|Location2.Y=2342.2mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (2.953mil &lt; 5mil) Between Pad BMP180-3(3161.417mil,2352.362mil) on Top Layer And Track (3022.638mil,2333.661mil)(3182.087mil,2333.661mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.953mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3173.548mil|Location2.X=3179.798mil|Location1.Y=2337.426mil|Location2.Y=2343.676mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3173.548mil|Location2.X=3179.798mil|Location1.Y=2337.426mil|Location2.Y=2343.676mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (2.953mil &lt; 5mil) Between Pad BMP180-3(3161.417mil,2352.362mil) on Top Layer And Track (3182.087mil,2333.661mil)(3182.087mil,2485.236mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.953mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3144.513mil|Location2.X=3150.763mil|Location1.Y=2476.698mil|Location2.Y=2482.948mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3144.513mil|Location2.X=3150.763mil|Location1.Y=2476.698mil|Location2.Y=2482.948mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (2.953mil &lt; 5mil) Between Pad BMP180-4(3161.417mil,2466.535mil) on Top Layer And Track (3022.638mil,2485.236mil)(3182.087mil,2485.236mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.953mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3173.548mil|Location2.X=3179.798mil|Location1.Y=2451.599mil|Location2.Y=2457.849mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3173.548mil|Location2.X=3179.798mil|Location1.Y=2451.599mil|Location2.Y=2457.849mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (2.953mil &lt; 5mil) Between Pad BMP180-4(3161.417mil,2466.535mil) on Top Layer And Track (3182.087mil,2333.661mil)(3182.087mil,2485.236mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.953mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3085.458mil|Location2.X=3091.708mil|Location1.Y=2476.698mil|Location2.Y=2482.948mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3085.458mil|Location2.X=3091.708mil|Location1.Y=2476.698mil|Location2.Y=2482.948mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (2.953mil &lt; 5mil) Between Pad BMP180-5(3102.362mil,2466.535mil) on Top Layer And Track (3022.638mil,2485.236mil)(3182.087mil,2485.236mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.953mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3024.926mil|Location2.X=3031.176mil|Location1.Y=2475.221mil|Location2.Y=2481.471mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3024.926mil|Location2.X=3031.176mil|Location1.Y=2475.221mil|Location2.Y=2481.471mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (2.953mil &lt; 5mil) Between Pad BMP180-6(3043.307mil,2466.535mil) on Top Layer And Track (3022.638mil,2333.661mil)(3022.638mil,2485.236mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.953mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3026.403mil|Location2.X=3032.653mil|Location1.Y=2476.698mil|Location2.Y=2482.948mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3026.403mil|Location2.X=3032.653mil|Location1.Y=2476.698mil|Location2.Y=2482.948mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (2.953mil &lt; 5mil) Between Pad BMP180-6(3043.307mil,2466.535mil) on Top Layer And Track (3022.638mil,2485.236mil)(3182.087mil,2485.236mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.953mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDDSCOQXD2JQAND1QXLZX43GPXI1SVQTAJAOFHWDJKYMJLX2QJA0I"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=10mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3498.627mil|Location2.X=3509.877mil|Location1.Y=1648.761mil|Location2.Y=1660.011mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3498.627mil|Location2.X=3509.877mil|Location1.Y=1648.761mil|Location2.Y=1660.011mil|Absolute=True">Silk To Silk Clearance Constraint: (5.402mil &lt; 10mil) Between Text "1" (3504.252mil,1631.024mil) on Top Overlay And Track (3334.252mil,1661.024mil)(3534.252mil,1661.024mil) on Top Overlay Silk Text to Silk Clearance [5.402mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3398.627mil|Location2.X=3409.877mil|Location1.Y=1647.091mil|Location2.Y=1658.341mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3398.627mil|Location2.X=3409.877mil|Location1.Y=1647.091mil|Location2.Y=1658.341mil|Absolute=True">Silk To Silk Clearance Constraint: (8.74mil &lt; 10mil) Between Text "2" (3404.252mil,1611.024mil) on Top Overlay And Track (3334.252mil,1661.024mil)(3534.252mil,1661.024mil) on Top Overlay Silk Text to Silk Clearance [8.74mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3448.643mil|Location2.X=3459.893mil|Location1.Y=1960.367mil|Location2.Y=1971.617mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3448.643mil|Location2.X=3459.893mil|Location1.Y=1960.367mil|Location2.Y=1971.617mil|Absolute=True">Silk To Silk Clearance Constraint: (2.063mil &lt; 10mil) Between Text "5" (3504.252mil,1971.024mil) on Top Overlay And Track (3334.252mil,1961.024mil)(3534.252mil,1961.024mil) on Top Overlay Silk Text to Silk Clearance [2.063mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3373.635mil|Location2.X=3384.885mil|Location1.Y=1960.367mil|Location2.Y=1971.617mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3373.635mil|Location2.X=3384.885mil|Location1.Y=1960.367mil|Location2.Y=1971.617mil|Absolute=True">Silk To Silk Clearance Constraint: (2.063mil &lt; 10mil) Between Text "6" (3404.252mil,1971.024mil) on Top Overlay And Track (3334.252mil,1961.024mil)(3534.252mil,1961.024mil) on Top Overlay Silk Text to Silk Clearance [2.063mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

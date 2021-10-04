@@ -1,0 +1,12 @@
+Added Component: Designator=D1(SMP)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "SS1P3L-M3/85A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/ss1p3l-m385a/vishay"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://www.vishay.com/docs/88915/ss1p3l.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Vishay"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "SS1P3L-M3/85A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "625-SS1P3L-M3/85A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Vishay-General-Semiconductor/SS1P3L-M3-85A?qs=HSPD0Bff7iYLtqq1%2F0B2Eg%3D%3D"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=VBUS Pin=D1-1
+Added Pin To Net: NetName=+5V Pin=D1-2
+Added Member To Class: ClassName=Sheet1 Member=Component D1 SS1P3L-M3_85A
+Added Room: Name=Sheet1

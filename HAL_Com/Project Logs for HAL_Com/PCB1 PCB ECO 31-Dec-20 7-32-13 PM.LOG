@@ -1,0 +1,14 @@
+Change Component Designator: OldDesignator=R? NewDesignator=R7
+Change Component Designator: OldDesignator=R? NewDesignator=R8
+Change Component Designator: OldDesignator=R? NewDesignator=R9
+Added Pin To Net: NetName=NetLED1_2 Pin=R7-1
+Added Net: Name=NetLED1_2
+Added Pin To Net: NetName=NetLED1_3 Pin=R8-2
+Added Net: Name=NetLED1_3
+Added Pin To Net: NetName=NetLED1_4 Pin=R9-2
+Added Net: Name=NetLED1_4
+Added Member To Class: ClassName=Sheet1 Member=Component IC5 LM1117DTX-3.3_NOPB
+Added Member To Class: ClassName=Sheet1 Member=Component IC6 LM1117DT-5.0_NOPB
+Added Member To Class: ClassName=Sheet2 Member=Component R7 220
+Added Member To Class: ClassName=Sheet2 Member=Component R8 220
+Added Member To Class: ClassName=Sheet2 Member=Component Y1 7M-16.000MEEQ-T

@@ -1,0 +1,15 @@
+Change Net Name : Old Net Name=GREEN New Net Name=RED
+Change Net Name : Old Net Name=NetLED1_4 New Net Name=BLUE
+Change Net Name : Old Net Name=RED New Net Name=GREEN
+Added Pin To Net: NetName=NetLED?_1 Pin=R9-1
+Added Net: Name=NetLED?_1
+Added Pin To Net: NetName=NetLED?_2 Pin=R7-1
+Added Net: Name=NetLED?_2
+Added Pin To Net: NetName=NetLED?_3 Pin=R8-2
+Added Net: Name=NetLED?_3
+Added Member To Class: ClassName=Sheet1 Member=Component IC5 LM1117DTX-3.3_NOPB
+Added Member To Class: ClassName=Sheet1 Member=Component IC6 LM1117DT-5.0_NOPB
+Added Member To Class: ClassName=Sheet2 Member=Component R9 220
+Added Member To Class: ClassName=Sheet2 Member=Component Y1 7M-16.000MEEQ-T
+Added Room: Name=Sheet1
+Added Room: Name=Sheet2

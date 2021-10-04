@@ -1,0 +1,51 @@
+Added Component: Designator=R7(RESC2012X65N)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://docs-europe.electrocomponents.com/webdocs/13d1/0900766b813d116f.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "0.65mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "CPF0805B340RE1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R8(RESC2012X65N)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://docs-europe.electrocomponents.com/webdocs/13d1/0900766b813d116f.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "0.65mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "CPF0805B340RE1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R9(RESC2012X65N)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://docs-europe.electrocomponents.com/webdocs/13d1/0900766b813d116f.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "0.65mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "CPF0805B340RE1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=BLUE Pin=R9-2
+Added Net: Name=BLUE
+Added Pin To Net: NetName=GREEN Pin=R7-2
+Added Net: Name=GREEN
+Added Pin To Net: NetName=NetLED?_1 Pin=R9-1
+Added Net: Name=NetLED?_1
+Added Pin To Net: NetName=NetLED?_2 Pin=R7-1
+Added Net: Name=NetLED?_2
+Added Pin To Net: NetName=NetLED?_3 Pin=R8-2
+Added Net: Name=NetLED?_3
+Added Pin To Net: NetName=RED Pin=R8-1
+Added Net: Name=RED
+Added Member To Class: ClassName=Sheet1 Member=Component D13 HSMR-C190
+Added Member To Class: ClassName=Sheet1 Member=Component IC5 LM1117DTX-3.3_NOPB
+Added Member To Class: ClassName=Sheet1 Member=Component IC6 LM1117DT-5.0_NOPB
+Added Member To Class: ClassName=Sheet1 Member=Component PWR HSMR-C190
+Added Member To Class: ClassName=Sheet2 Member=Component R7 220
+Added Member To Class: ClassName=Sheet2 Member=Component R8 220
+Added Member To Class: ClassName=Sheet2 Member=Component R9 220
+Added Member To Class: ClassName=Sheet1 Member=Component RX HSMR-C190
+Added Member To Class: ClassName=Sheet1 Member=Component TX HSMR-C190
+Added Member To Class: ClassName=Sheet2 Member=Component Y1 7M-16.000MEEQ-T
+Added Room: Name=Sheet1
+Added Room: Name=Sheet2

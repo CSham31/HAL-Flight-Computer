@@ -1,0 +1,12 @@
+Change Component Designator: OldDesignator=IC3 NewDesignator=ATMEGA328
+Change Net Name : Old Net Name=NetC8_2 New Net Name=NetATMEGA328_20
+Change Net Name : Old Net Name=NetIC3_30 New Net Name=NetATMEGA328_30
+Change Net Name : Old Net Name=NetIC3_31 New Net Name=NetATMEGA328_31
+Added Pin To Net: NetName=NetATMEGA328_7 Pin=ATMEGA328-7
+Added Pin To Net: NetName=NetATMEGA328_7 Pin=C9-2
+Added Net: Name=NetATMEGA328_7
+Added Pin To Net: NetName=NetATMEGA328_8 Pin=ATMEGA328-8
+Added Pin To Net: NetName=NetATMEGA328_8 Pin=C10-2
+Added Net: Name=NetATMEGA328_8
+Added Room: Name=Sheet1
+Added Room: Name=Sheet2

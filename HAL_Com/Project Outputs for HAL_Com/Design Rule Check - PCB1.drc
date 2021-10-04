@@ -1,0 +1,198 @@
+Protel Design System Design Rule Check
+PCB File : F:\Model Rocket\PCB\HAL_Com\PCB1.PcbDoc
+Date     : 31-Dec-20
+Time     : 2:54:36 PM
+
+Processing Rule : Clearance Constraint (Gap=10mil) (All),(All)
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad ATMEGA328-14(2862.205mil,2655.512mil) on Top Layer And Pad ATMEGA328-15(2893.701mil,2655.512mil) on Top Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad ATMEGA328-15(2893.701mil,2655.512mil) on Top Layer And Pad ATMEGA328-16(2925.197mil,2655.512mil) on Top Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad ATMEGA328-17(2982.283mil,2712.598mil) on Top Layer And Pad ATMEGA328-18(2982.283mil,2744.094mil) on Top Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad ATMEGA328-18(2982.283mil,2744.094mil) on Top Layer And Pad ATMEGA328-19(2982.283mil,2775.59mil) on Top Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad ATMEGA328-19(2982.283mil,2775.59mil) on Top Layer And Pad ATMEGA328-20(2982.283mil,2807.087mil) on Top Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad ATMEGA328-2(2647.638mil,2901.575mil) on Top Layer And Pad ATMEGA328-3(2647.638mil,2870.079mil) on Top Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad ATMEGA328-20(2982.283mil,2807.087mil) on Top Layer And Pad ATMEGA328-21(2982.283mil,2838.583mil) on Top Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad ATMEGA328-21(2982.283mil,2838.583mil) on Top Layer And Pad ATMEGA328-22(2982.283mil,2870.079mil) on Top Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad ATMEGA328-28(2830.709mil,2990.157mil) on Top Layer And Pad ATMEGA328-29(2799.213mil,2990.157mil) on Top Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad ATMEGA328-29(2799.213mil,2990.157mil) on Top Layer And Pad ATMEGA328-30(2767.716mil,2990.157mil) on Top Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad ATMEGA328-3(2647.638mil,2870.079mil) on Top Layer And Pad ATMEGA328-4(2647.638mil,2838.583mil) on Top Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad ATMEGA328-30(2767.716mil,2990.157mil) on Top Layer And Pad ATMEGA328-31(2736.22mil,2990.157mil) on Top Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad ATMEGA328-31(2736.22mil,2990.157mil) on Top Layer And Pad ATMEGA328-32(2704.724mil,2990.157mil) on Top Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad ATMEGA328-4(2647.638mil,2838.583mil) on Top Layer And Pad ATMEGA328-5(2647.638mil,2807.087mil) on Top Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad ATMEGA328-5(2647.638mil,2807.087mil) on Top Layer And Pad ATMEGA328-6(2647.638mil,2775.59mil) on Top Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad ATMEGA328-6(2647.638mil,2775.59mil) on Top Layer And Pad ATMEGA328-7(2647.638mil,2744.094mil) on Top Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad ATMEGA328-7(2647.638mil,2744.094mil) on Top Layer And Pad ATMEGA328-8(2647.638mil,2712.598mil) on Top Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad EEPROM-5(3241.142mil,2763.78mil) on Top Layer And Pad EEPROM-6(3266.732mil,2763.78mil) on Top Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad EEPROM-6(3266.732mil,2763.78mil) on Top Layer And Pad EEPROM-7(3292.323mil,2763.78mil) on Top Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad EEPROM-7(3292.323mil,2763.78mil) on Top Layer And Pad EEPROM-8(3317.913mil,2763.78mil) on Top Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad FT323RL-1(2274.606mil,2968.504mil) on Bottom Layer And Pad FT323RL-2(2300.197mil,2968.504mil) on Bottom Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad FT323RL-15(2607.284mil,2692.913mil) on Bottom Layer And Pad FT323RL-16(2581.693mil,2692.913mil) on Bottom Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad FT323RL-16(2581.693mil,2692.913mil) on Bottom Layer And Pad FT323RL-17(2556.102mil,2692.913mil) on Bottom Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad FT323RL-17(2556.102mil,2692.913mil) on Bottom Layer And Pad FT323RL-18(2530.512mil,2692.913mil) on Bottom Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad FT323RL-18(2530.512mil,2692.913mil) on Bottom Layer And Pad FT323RL-19(2504.921mil,2692.913mil) on Bottom Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad FT323RL-19(2504.921mil,2692.913mil) on Bottom Layer And Pad FT323RL-20(2479.331mil,2692.913mil) on Bottom Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad FT323RL-2(2300.197mil,2968.504mil) on Bottom Layer And Pad FT323RL-3(2325.787mil,2968.504mil) on Bottom Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad FT323RL-20(2479.331mil,2692.913mil) on Bottom Layer And Pad FT323RL-21(2453.74mil,2692.913mil) on Bottom Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad FT323RL-21(2453.74mil,2692.913mil) on Bottom Layer And Pad FT323RL-22(2428.15mil,2692.913mil) on Bottom Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad FT323RL-22(2428.15mil,2692.913mil) on Bottom Layer And Pad FT323RL-23(2402.559mil,2692.913mil) on Bottom Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad FT323RL-23(2402.559mil,2692.913mil) on Bottom Layer And Pad FT323RL-24(2376.968mil,2692.913mil) on Bottom Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad FT323RL-24(2376.968mil,2692.913mil) on Bottom Layer And Pad FT323RL-25(2351.378mil,2692.913mil) on Bottom Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad FT323RL-26(2325.787mil,2692.913mil) on Bottom Layer And Pad FT323RL-27(2300.197mil,2692.913mil) on Bottom Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad FT323RL-3(2325.787mil,2968.504mil) on Bottom Layer And Pad FT323RL-4(2351.378mil,2968.504mil) on Bottom Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad FT323RL-4(2351.378mil,2968.504mil) on Bottom Layer And Pad FT323RL-5(2376.968mil,2968.504mil) on Bottom Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad FT323RL-5(2376.968mil,2968.504mil) on Bottom Layer And Pad FT323RL-6(2402.559mil,2968.504mil) on Bottom Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad FT323RL-6(2402.559mil,2968.504mil) on Bottom Layer And Pad FT323RL-7(2428.15mil,2968.504mil) on Bottom Layer 
+   Violation between Clearance Constraint: (7.874mil < 10mil) Between Pad FT323RL-7(2428.15mil,2968.504mil) on Bottom Layer And Pad FT323RL-8(2453.74mil,2968.504mil) on Bottom Layer 
+   Violation between Clearance Constraint: (9.842mil < 10mil) Between Pad USB-1(1907.48mil,2897.638mil) on Top Layer And Pad USB-2(1907.48mil,2872.047mil) on Top Layer 
+   Violation between Clearance Constraint: (9.843mil < 10mil) Between Pad USB-2(1907.48mil,2872.047mil) on Top Layer And Pad USB-3(1907.48mil,2846.457mil) on Top Layer 
+   Violation between Clearance Constraint: (9.843mil < 10mil) Between Pad USB-3(1907.48mil,2846.457mil) on Top Layer And Pad USB-4(1907.48mil,2820.866mil) on Top Layer 
+   Violation between Clearance Constraint: (9.842mil < 10mil) Between Pad USB-4(1907.48mil,2820.866mil) on Top Layer And Pad USB-5(1907.48mil,2795.276mil) on Top Layer 
+Rule Violations :42
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+   Violation between Un-Routed Net Constraint: Net MOSI Between Pad ATMEGA328-15(2893.701mil,2655.512mil) on Top Layer [Unplated] And Pad ICSP-4(3384.252mil,1811.024mil) on Multi-Layer 
+   Violation between Un-Routed Net Constraint: Net MISO Between Pad ATMEGA328-16(2925.197mil,2655.512mil) on Top Layer [Unplated] And Pad ICSP-1(3484.252mil,1711.024mil) on Multi-Layer 
+   Violation between Un-Routed Net Constraint: Net SCK Between Pad ATMEGA328-17(2982.283mil,2712.598mil) on Top Layer [Unplated] And Pad ICSP-3(3484.252mil,1811.024mil) on Multi-Layer 
+   Violation between Un-Routed Net Constraint: Net SCK Between Pad R4-2(2082.677mil,2885.827mil) on Top Layer [Unplated] And Pad ATMEGA328-17(2982.283mil,2712.598mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net +5V Between Pad ATMEGA328-6(2647.638mil,2775.59mil) on Top Layer [Unplated] And Pad ATMEGA328-18(2982.283mil,2744.094mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net +5V Between Pad ATMEGA328-18(2982.283mil,2744.094mil) on Top Layer [Unplated] And Pad EEPROM-8(3317.913mil,2763.78mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net NetATMEGA328_20 Between Pad ATMEGA328-20(2982.283mil,2807.087mil) on Top Layer [Unplated] And Pad C8-2(3340.55mil,3232.283mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad ATMEGA328-5(2647.638mil,2807.087mil) on Top Layer [Unplated] And Pad ATMEGA328-21(2982.283mil,2838.583mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad ATMEGA328-21(2982.283mil,2838.583mil) on Top Layer [Unplated] And Pad EEPROM-4(3241.142mil,2937.008mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net RESET Between Pad C4-1(2362.205mil,3074.803mil) on Bottom Layer [Unplated] And Pad ATMEGA328-29(2799.213mil,2990.157mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net RESET Between Pad ATMEGA328-29(2799.213mil,2990.157mil) on Top Layer [Unplated] And Pad ICSP-5(3484.252mil,1911.024mil) on Multi-Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad ATMEGA328-5(2647.638mil,2807.087mil) on Top Layer [Unplated] And Pad ATMEGA328-3(2647.638mil,2870.079mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net NetATMEGA328_30 Between Pad ATMEGA328-30(2767.716mil,2990.157mil) on Top Layer [Unplated] And Pad R6-1(3031.496mil,3212.598mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net NetATMEGA328_31 Between Pad ATMEGA328-31(2736.22mil,2990.157mil) on Top Layer [Unplated] And Pad R5-1(3208.661mil,3212.598mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net +5V Between Pad ATMEGA328-6(2647.638mil,2775.59mil) on Top Layer [Unplated] And Pad ATMEGA328-4(2647.638mil,2838.583mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad FT323RL-18(2530.512mil,2692.913mil) on Bottom Layer [Unplated] And Pad ATMEGA328-5(2647.638mil,2807.087mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net +5V Between Pad FT323RL-20(2479.331mil,2692.913mil) on Bottom Layer [Unplated] And Pad ATMEGA328-6(2647.638mil,2775.59mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net NetATMEGA328_7 Between Pad ATMEGA328-7(2647.638mil,2744.094mil) on Top Layer [Unplated] And Pad Y1-3(2724.41mil,2492.126mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net NetATMEGA328_8 Between Pad Y1-1(2637.795mil,2425.197mil) on Top Layer [Unplated] And Pad ATMEGA328-8(2647.638mil,2712.598mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net +3V3 Between Pad BMP180-2(3102.362mil,2352.362mil) on Top Layer [Unplated] And Pad BMP180-3(3161.417mil,2352.362mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net +3V3 Between Pad C5-2(2539.37mil,2582.677mil) on Bottom Layer [Unplated] And Pad BMP180-2(3102.362mil,2352.362mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net +3V3 Between Pad BMP180-3(3161.417mil,2352.362mil) on Top Layer [Unplated] And Pad C3-2(3161.417mil,2248.032mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net SCL Between Pad BMP180-5(3102.362mil,2466.535mil) on Top Layer [Unplated] And Pad EEPROM-6(3266.732mil,2763.78mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net SDA Between Pad BMP180-6(3043.307mil,2466.535mil) on Top Layer [Unplated] And Pad EEPROM-5(3241.142mil,2763.78mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad BMP180-7(3043.307mil,2409.449mil) on Top Layer [Unplated] And Pad C3-1(3106.299mil,2248.032mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C9-1(2830.709mil,2437.008mil) on Top Layer [Unplated] And Pad BMP180-7(3043.307mil,2409.449mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C5-1(2484.252mil,2582.677mil) on Bottom Layer [Unplated] And Pad C10-1(2539.37mil,2496.063mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C10-1(2539.37mil,2496.063mil) on Top Layer [Unplated] And Pad Y1-4(2637.795mil,2492.126mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net NetATMEGA328_8 Between Pad C10-2(2539.37mil,2440.945mil) on Top Layer [Unplated] And Pad Y1-1(2637.795mil,2425.197mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C1-1(1897.638mil,3216.535mil) on Bottom Layer [Unplated] And Pad C12-1(1925.197mil,3570.866mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C1-1(1897.638mil,3216.535mil) on Bottom Layer [Unplated] And Pad C2-1(1901.575mil,3133.858mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C11-1(1842.52mil,3570.866mil) on Bottom Layer [Unplated] And Pad C12-1(1925.197mil,3570.866mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net +5V Between Pad C11-2(1842.52mil,3515.748mil) on Bottom Layer [Unplated] And Pad C12-2(1925.197mil,3515.748mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net +5V Between Pad IC6-4(1822.835mil,3795.276mil) on Bottom Layer [Unplated] And Pad C11-2(1842.52mil,3515.748mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net VBUS Between Pad C1-2(1952.756mil,3216.535mil) on Bottom Layer [Unplated] And Pad C2-2(1956.693mil,3133.858mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net VBUS Between Pad C1-2(1952.756mil,3216.535mil) on Bottom Layer [Unplated] And Pad D1-1(2029.488mil,3220.472mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C12-1(1925.197mil,3570.866mil) on Bottom Layer [Unplated] And Pad C13-1(2007.874mil,3570.866mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net +5V Between Pad C12-2(1925.197mil,3515.748mil) on Bottom Layer [Unplated] And Pad C13-2(2007.874mil,3515.748mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C13-1(2007.874mil,3570.866mil) on Bottom Layer [Unplated] And Pad C7-1(2086.614mil,3570.866mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net +5V Between Pad C13-2(2007.874mil,3515.748mil) on Bottom Layer [Unplated] And Pad C7-2(2086.614mil,3515.748mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad USB-8(1807.087mil,2987.205mil) on Multi-Layer And Pad C2-1(1901.575mil,3133.858mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net VBUS Between Pad USB-1(1907.48mil,2897.638mil) on Top Layer [Unplated] And Pad C2-2(1956.693mil,3133.858mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C3-1(3106.299mil,2248.032mil) on Top Layer [Unplated] And Pad ICSP-6(3384.252mil,1911.024mil) on Multi-Layer 
+   Violation between Un-Routed Net Constraint: Net NetC4_2 Between Pad FT323RL-2(2300.197mil,2968.504mil) on Bottom Layer [Unplated] And Pad C4-2(2307.087mil,3074.803mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad FT323RL-21(2453.74mil,2692.913mil) on Bottom Layer [Unplated] And Pad C5-1(2484.252mil,2582.677mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net +3V3 Between Pad C6-2(2007.874mil,1960.63mil) on Bottom Layer [Unplated] And Pad C5-2(2539.37mil,2582.677mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net +3V3 Between Pad C5-2(2539.37mil,2582.677mil) on Bottom Layer [Unplated] And Pad FT323RL-17(2556.102mil,2692.913mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C6-1(2062.992mil,1960.63mil) on Bottom Layer [Unplated] And Pad FT323RL-26(2325.787mil,2692.913mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C6-1(2062.992mil,1960.63mil) on Bottom Layer [Unplated] And Pad IC5-1(2191.544mil,1822.247mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net +3V3 Between Pad IC5-4(1929.142mil,1732.286mil) on Bottom Layer [Unplated] And Pad C6-2(2007.874mil,1960.63mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C7-1(2086.614mil,3570.866mil) on Bottom Layer [Unplated] And Pad IC6-1(2102.362mil,3885.236mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net +5V Between Pad C7-2(2086.614mil,3515.748mil) on Bottom Layer [Unplated] And Pad D1-2(2122.047mil,3220.472mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad EEPROM-1(3317.913mil,2937.008mil) on Top Layer [Unplated] And Pad C8-1(3395.669mil,3232.283mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad Y1-4(2637.795mil,2492.126mil) on Top Layer [Unplated] And Pad C9-1(2830.709mil,2437.008mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net NetATMEGA328_7 Between Pad Y1-3(2724.41mil,2492.126mil) on Top Layer [Unplated] And Pad C9-2(2830.709mil,2492.126mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net +5V Between Pad D1-2(2122.047mil,3220.472mil) on Bottom Layer [Unplated] And Pad FT323RL-4(2351.378mil,2968.504mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad D13-1(2366.142mil,2992.126mil) on Top Layer [Unplated] And Pad FT323RL-7(2428.15mil,2968.504mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net NetD13_2 Between Pad R4-1(2157.48mil,2885.827mil) on Top Layer [Unplated] And Pad D13-2(2303.149mil,2992.126mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad EEPROM-2(3292.323mil,2937.008mil) on Top Layer [Unplated] And Pad EEPROM-1(3317.913mil,2937.008mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad EEPROM-3(3266.732mil,2937.008mil) on Top Layer [Unplated] And Pad EEPROM-2(3292.323mil,2937.008mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad EEPROM-7(3292.323mil,2763.78mil) on Top Layer [Unplated] And Pad EEPROM-2(3292.323mil,2937.008mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad EEPROM-4(3241.142mil,2937.008mil) on Top Layer [Unplated] And Pad EEPROM-3(3266.732mil,2937.008mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net +5V Between Pad EEPROM-8(3317.913mil,2763.78mil) on Top Layer [Unplated] And Pad ICSP-2(3384.252mil,1711.024mil) on Multi-Layer 
+   Violation between Un-Routed Net Constraint: Net RX Between Pad FT323RL-1(2274.606mil,2968.504mil) on Bottom Layer [Unplated] And Pad R6-2(2956.693mil,3212.598mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net D+ Between Pad USB-3(1907.48mil,2846.457mil) on Top Layer [Unplated] And Pad FT323RL-15(2607.284mil,2692.913mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net D- Between Pad USB-2(1907.48mil,2872.047mil) on Top Layer [Unplated] And Pad FT323RL-16(2581.693mil,2692.913mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad FT323RL-21(2453.74mil,2692.913mil) on Bottom Layer [Unplated] And Pad FT323RL-18(2530.512mil,2692.913mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net +5V Between Pad TX-2(2307.086mil,2779.528mil) on Top Layer [Unplated] And Pad FT323RL-20(2479.331mil,2692.913mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad FT323RL-25(2351.378mil,2692.913mil) on Bottom Layer [Unplated] And Pad FT323RL-21(2453.74mil,2692.913mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad FT323RL-7(2428.15mil,2968.504mil) on Bottom Layer [Unplated] And Pad FT323RL-21(2453.74mil,2692.913mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net NetFT323RL_22 Between Pad R2-1(2157.48mil,2996.063mil) on Top Layer [Unplated] And Pad FT323RL-22(2428.15mil,2692.913mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net NetFT323RL_23 Between Pad R1-1(2080.709mil,2677.165mil) on Top Layer [Unplated] And Pad FT323RL-23(2402.559mil,2692.913mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad FT323RL-26(2325.787mil,2692.913mil) on Bottom Layer [Unplated] And Pad FT323RL-25(2351.378mil,2692.913mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad FT323RL-25(2351.378mil,2692.913mil) on Bottom Layer [Unplated] And Pad PWR-1(2370.079mil,2681.102mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad USB-9(1807.087mil,2705.709mil) on Multi-Layer And Pad FT323RL-26(2325.787mil,2692.913mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net +5V Between Pad RX-2(2307.087mil,2885.827mil) on Top Layer [Unplated] And Pad FT323RL-4(2351.378mil,2968.504mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net TX Between Pad FT323RL-5(2376.968mil,2968.504mil) on Bottom Layer [Unplated] And Pad R5-2(3133.858mil,3212.598mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net VIN Between Pad IC6-3(2102.362mil,3705.315mil) on Bottom Layer [Unplated] And Pad IC5-3(2191.544mil,1642.326mil) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net NetPWR_2 Between Pad R3-2(2157.48mil,2783.465mil) on Top Layer [Unplated] And Pad PWR-2(2307.087mil,2681.102mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net NetR1_2 Between Pad R1-2(2155.512mil,2677.165mil) on Top Layer [Unplated] And Pad RX-1(2370.079mil,2885.827mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net NetR2_2 Between Pad R2-2(2082.677mil,2996.063mil) on Top Layer [Unplated] And Pad TX-1(2370.079mil,2779.528mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net +5V Between Pad R3-1(2082.677mil,2783.465mil) on Top Layer [Unplated] And Pad TX-2(2307.086mil,2779.528mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net +5V Between Pad TX-2(2307.086mil,2779.528mil) on Top Layer [Unplated] And Pad RX-2(2307.087mil,2885.827mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad USB-7(1807.087mil,2799.213mil) on Top Layer [Unplated] And Pad USB-5(1907.48mil,2795.276mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad USB-7(1807.087mil,2799.213mil) on Top Layer [Unplated] And Pad USB-6(1807.087mil,2893.701mil) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad USB-6(1807.087mil,2893.701mil) on Top Layer [Unplated] And Pad USB-8(1807.087mil,2987.205mil) on Multi-Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad USB-9(1807.087mil,2705.709mil) on Multi-Layer And Pad USB-7(1807.087mil,2799.213mil) on Top Layer [Unplated] 
+Rule Violations :87
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=10mil) (Preferred=10mil) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=100mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=10mil) (All),(All)
+   Violation between Minimum Solder Mask Sliver Constraint: (1.842mil < 10mil) Between Pad USB-1(1907.48mil,2897.638mil) on Top Layer And Pad USB-2(1907.48mil,2872.047mil) on Top Layer [Top Solder] Mask Sliver [1.842mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (1.843mil < 10mil) Between Pad USB-2(1907.48mil,2872.047mil) on Top Layer And Pad USB-3(1907.48mil,2846.457mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (1.843mil < 10mil) Between Pad USB-3(1907.48mil,2846.457mil) on Top Layer And Pad USB-4(1907.48mil,2820.866mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (1.842mil < 10mil) Between Pad USB-4(1907.48mil,2820.866mil) on Top Layer And Pad USB-5(1907.48mil,2795.276mil) on Top Layer [Top Solder] Mask Sliver [1.842mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (8.87mil < 10mil) Between Pad USB-6(1807.087mil,2893.701mil) on Top Layer And Pad USB-8(1807.087mil,2987.205mil) on Multi-Layer [Top Solder] Mask Sliver [8.87mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (8.87mil < 10mil) Between Pad USB-7(1807.087mil,2799.213mil) on Top Layer And Pad USB-9(1807.087mil,2705.709mil) on Multi-Layer [Top Solder] Mask Sliver [8.87mil]
+Rule Violations :6
+
+Processing Rule : Silk To Solder Mask (Clearance=5mil) (IsPad),(All)
+   Violation between Silk To Solder Mask Clearance Constraint: (3.15mil < 5mil) Between Arc (2638.543mil,2392.008mil) on Top Overlay And Pad Y1-1(2637.795mil,2425.197mil) on Top Layer [Top Overlay] to [Top Solder] clearance [3.15mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (2.953mil < 5mil) Between Pad BMP180-1(3043.307mil,2352.362mil) on Top Layer And Track (3022.638mil,2333.661mil)(3022.638mil,2485.236mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.953mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (2.953mil < 5mil) Between Pad BMP180-1(3043.307mil,2352.362mil) on Top Layer And Track (3022.638mil,2333.661mil)(3182.087mil,2333.661mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.953mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (2.953mil < 5mil) Between Pad BMP180-2(3102.362mil,2352.362mil) on Top Layer And Track (3022.638mil,2333.661mil)(3182.087mil,2333.661mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.953mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (2.953mil < 5mil) Between Pad BMP180-3(3161.417mil,2352.362mil) on Top Layer And Track (3022.638mil,2333.661mil)(3182.087mil,2333.661mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.953mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (2.953mil < 5mil) Between Pad BMP180-3(3161.417mil,2352.362mil) on Top Layer And Track (3182.087mil,2333.661mil)(3182.087mil,2485.236mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.953mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (2.953mil < 5mil) Between Pad BMP180-4(3161.417mil,2466.535mil) on Top Layer And Track (3022.638mil,2485.236mil)(3182.087mil,2485.236mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.953mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (2.953mil < 5mil) Between Pad BMP180-4(3161.417mil,2466.535mil) on Top Layer And Track (3182.087mil,2333.661mil)(3182.087mil,2485.236mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.953mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (2.953mil < 5mil) Between Pad BMP180-5(3102.362mil,2466.535mil) on Top Layer And Track (3022.638mil,2485.236mil)(3182.087mil,2485.236mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.953mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (2.953mil < 5mil) Between Pad BMP180-6(3043.307mil,2466.535mil) on Top Layer And Track (3022.638mil,2333.661mil)(3022.638mil,2485.236mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.953mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (2.953mil < 5mil) Between Pad BMP180-6(3043.307mil,2466.535mil) on Top Layer And Track (3022.638mil,2485.236mil)(3182.087mil,2485.236mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.953mil]
+Rule Violations :11
+
+Processing Rule : Silk to Silk (Clearance=10mil) (All),(All)
+   Violation between Silk To Silk Clearance Constraint: (5.402mil < 10mil) Between Text "1" (3504.252mil,1631.024mil) on Top Overlay And Track (3334.252mil,1661.024mil)(3534.252mil,1661.024mil) on Top Overlay Silk Text to Silk Clearance [5.402mil]
+   Violation between Silk To Silk Clearance Constraint: (8.74mil < 10mil) Between Text "2" (3404.252mil,1611.024mil) on Top Overlay And Track (3334.252mil,1661.024mil)(3534.252mil,1661.024mil) on Top Overlay Silk Text to Silk Clearance [8.74mil]
+   Violation between Silk To Silk Clearance Constraint: (2.063mil < 10mil) Between Text "5" (3504.252mil,1971.024mil) on Top Overlay And Track (3334.252mil,1961.024mil)(3534.252mil,1961.024mil) on Top Overlay Silk Text to Silk Clearance [2.063mil]
+   Violation between Silk To Silk Clearance Constraint: (2.063mil < 10mil) Between Text "6" (3404.252mil,1971.024mil) on Top Overlay And Track (3334.252mil,1961.024mil)(3534.252mil,1961.024mil) on Top Overlay Silk Text to Silk Clearance [2.063mil]
+Rule Violations :4
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+
+Violations Detected : 150
+Waived Violations : 0
+Time Elapsed        : 00:00:02
